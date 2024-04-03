@@ -23,6 +23,8 @@ function keysToString(object) {
     let newStrings;
     //creating for in over object
     for(var key in object){
+        //creating test to see if a key is truthy
+        if(object[key] && )
         //initializing inner to the array of keys from object
         let inner = Object.keys(object);
         //assigning new strings to the join with a space
@@ -37,7 +39,18 @@ function keysToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function valuesToString(object) {
-    
+    //creating container string for values
+    let newString;
+    //creating loop over object
+    for(var key in object){
+        //initialzing inner to access the values of the object
+        let inner2 = Object.values(object);
+        //assigning newString to the values separated by a space
+        newString = inner2.join(' ');
+    }
+    //returning newString
+    return newString;
+
 }
 
 //////////////////////////////////////////////////////////////////////
