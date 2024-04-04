@@ -81,19 +81,35 @@ let newString = string[0].toUpperCase() + string.slice(1);
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeAllWords(string) {
-    let newString = string.charAt(0).toUppercase + string.slice(1);
-    return newString;
-    
+    let newString = [];
+    let jkNewString;
+    //= string.charAt(0).toUpperCase() + string.slice(1);;
+//    // splitting string into array
+    let newArray = string.split(' ')
+    //creating for loop to loop over array 
+    for( var i = 0; i < newArray.length; i++){
+      let capArray = newArray[i].charAt(0).toUpperCase() + newArray[i].slice(1);
+      newString.push(capArray);
+      jkNewString = newString.join(' ');
+    }
+    return jkNewString; 
 }
-
+console.log(capitalizeAllWords('lyle is so cool'));
 //////////////////////////////////////////////////////////////////////
 // Function 7 - Welcome Message //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function welcomeMessage(object) {
-
+    let greeting;
+    for(var key in object){
+greeting = 'Welcome ' + object['name'] + ' !';
+    }
+return greeting;
 }
-
+var boop = {
+    name: 'lyle',
+};
+console.log(welcomeMessage(boop));
 //////////////////////////////////////////////////////////////////////
 // Function 8 - Profile Info /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
