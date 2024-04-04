@@ -102,20 +102,21 @@ console.log(capitalizeAllWords('lyle is so cool'));
 function welcomeMessage(object) {
     let greeting;
     for(var key in object){
-greeting = 'Welcome ' + object.name.charAt(0).toUpperCase() + object.name.slice(1) + '!';
+greeting = 'Welcome ' + capitalizeWord(object.name) + '!';
     }
 return greeting;
 }
-var boop = {
-    name: 'lyle',
-};
-console.log(welcomeMessage(boop));
+
 //////////////////////////////////////////////////////////////////////
 // Function 8 - Profile Info /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function profileInfo(object) {
-
+let newString;
+for(var key in object){
+    newString = capitalizeWord(object.name) + ' is a ' + capitalizeWord(object.species);
+}
+return newString;
 }
 
 //////////////////////////////////////////////////////////////////////
