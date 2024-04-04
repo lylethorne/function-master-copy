@@ -102,7 +102,7 @@ console.log(capitalizeAllWords('lyle is so cool'));
 function welcomeMessage(object) {
     let greeting;
     for(var key in object){
-greeting = 'Welcome ' + object['name'] + ' !';
+greeting = 'Welcome ' + object.name.charAt(0).toUpperCase() + object.name.slice(1) + '!';
     }
 return greeting;
 }
