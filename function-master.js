@@ -42,7 +42,7 @@ function valuesToString(object) {
     //creating loop over object
     for(var key in object){
         //testing to see if key is truthty
-        if(!object[key] && object[key] !== Array.isArray(object[key]) && object[key] !== 'object' ){
+        if(object[key] !== Array.isArray(object[key]) && typeof object[key] !== 'object' ){
         //initialzing inner to access the values of the object
         let inner2 = Object.values(object);
         //assigning newString to the values separated by a space
@@ -70,8 +70,11 @@ function arrayOrObject(collection) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeWord(string) {
-    
+//container for new string
+let newString = string[0].toUpperCase() + string.slice(1);
+    return newString;
 }
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 6 - Capitalize All Words /////////////////////////////////
