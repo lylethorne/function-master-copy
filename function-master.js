@@ -124,14 +124,32 @@ return newString;
 //////////////////////////////////////////////////////////////////////
 
 function maybeNoises(object) {
+    let newString = [];
+    let newNewString = '';
+    //for key in loop
+    for (var key in object){
+        if(!object['noises']){
+            return 'there are no noises';
+        }else if(object.noises === []){
+            return 'there are no noises';
+        }else if(object.noises){
+            newString.push(object['noises']);
+            newNewString = newString.join(' ');
+            return newNewString;
+        }
+        }
+    }
 
+var boop = {
+    noises: ['b', 'woof', 'c'],
 }
-
+console.log(maybeNoises(boop));
 //////////////////////////////////////////////////////////////////////
 // Function 10 - Has Words ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function hasWord(string, word) {
+    if()
 
 }
 
