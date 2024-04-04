@@ -81,6 +81,8 @@ let newString = string[0].toUpperCase() + string.slice(1);
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeAllWords(string) {
+    let newString = string.charAt(0).toUppercase + string.slice(1);
+    return newString;
     
 }
 
