@@ -38,20 +38,25 @@ function keysToString(object) {
 
 function valuesToString(object) {
     //creating container string for values
-    let newString;
+    let newString = '';
     //creating loop over object
     for(var key in object){
-        //testing to see if key is truthty
-        if(object[key] !== Array.isArray(object[key]) && typeof object[key] !== 'object' ){
-        //initialzing inner to access the values of the object
-        let inner2 = Object.values(object);
+        //testing to see if key is a string
+        if(typeof object[key] === 'string'){
         //assigning newString to the values separated by a space
-        newString = inner2.join(' ');
+        newString += object[key] + ' ';
         }
     }
     //returning newString
-    return newString;
+    return newString.slice(0, -1);
 }
+let user = {
+    a: 'baby',
+    b: 42,
+    c: false,
+    d: 'apple'
+}
+console.log(valuesToString(user));
 
 //////////////////////////////////////////////////////////////////////
 // Function 4 - Array or Object //////////////////////////////////////
@@ -128,20 +133,19 @@ function maybeNoises(object) {
     let newNewString = '';
     //for key in loop
     for (var key in object){
-        if(!object['noises']){
+        if(object.noises.length === 0 || !object.noises){
             return 'there are no noises';
-        }else if(object.noises === []){
-            return 'there are no noises';
-        }else if(object.noises){
+        }else if(object.noises.length !== 0){
             newString.push(object['noises']);
-            newNewString = newString.join(' ');
-            return newNewString;
-        }
-        }
+            newNewString = newString.join(' '); }
+    }
+    return newNewString;
     }
 
+
 var boop = {
-    noises: ['b', 'woof', 'c'],
+   a: 'b',
+
 }
 console.log(maybeNoises(boop));
 //////////////////////////////////////////////////////////////////////
@@ -149,9 +153,15 @@ console.log(maybeNoises(boop));
 //////////////////////////////////////////////////////////////////////
 
 function hasWord(string, word) {
-    if()
-
+    for(var i = 0; i < string.length; i++){
+    if(string[i] !== word){
+        return false;
+    } else if (string[i] === word){
+        return true;
+    }
+    }
 }
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 11 - Add Friend //////////////////////////////////////////
