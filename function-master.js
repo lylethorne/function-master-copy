@@ -50,13 +50,6 @@ function valuesToString(object) {
     //returning newString
     return newString.slice(0, -1);
 }
-let user = {
-    a: 'baby',
-    b: 42,
-    c: false,
-    d: 'apple'
-}
-console.log(valuesToString(user));
 
 //////////////////////////////////////////////////////////////////////
 // Function 4 - Array or Object //////////////////////////////////////
@@ -99,7 +92,7 @@ function capitalizeAllWords(string) {
     }
     return jkNewString; 
 }
-console.log(capitalizeAllWords('lyle is so cool'));
+
 //////////////////////////////////////////////////////////////////////
 // Function 7 - Welcome Message //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
@@ -129,35 +122,26 @@ return newString;
 //////////////////////////////////////////////////////////////////////
 
 function maybeNoises(object) {
-    let newString = [];
-    let newNewString = '';
-    //for key in loop
-    for (var key in object){
-        if(object.noises.length === 0 || !object.noises){
+        if(Object.keys(object).length === 0){
             return 'there are no noises';
-        }else if(object.noises.length !== 0){
-            newString.push(object['noises']);
-            newNewString = newString.join(' '); }
+        }else if(object.noises.length === 0){
+            return 'there are no noises';
+        }else{
+            return object.noises.join(' ');
+        }
+       
     }
-    return newNewString;
-    }
 
-
-var boop = {
-   a: 'b',
-
-}
-console.log(maybeNoises(boop));
 //////////////////////////////////////////////////////////////////////
 // Function 10 - Has Words ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function hasWord(string, word) {
     for(var i = 0; i < string.length; i++){
-    if(string[i] !== word){
-        return false;
-    } else if (string[i] === word){
+    if(string.includes(word) === true){
         return true;
+    } else {
+        return false;
     }
     }
 }
@@ -168,7 +152,10 @@ function hasWord(string, word) {
 //////////////////////////////////////////////////////////////////////
 
 function addFriend (name, object) {
-
+    if(hasWord(object.friends, name) !== true){
+     object.friends.push(name);
+     return object;
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -176,15 +163,27 @@ function addFriend (name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function isFriend(name, object) {
-
-}
+    if(Object.keys(object).length === 0){
+        return false;
+    }else if(object.friends.includes(name) !== true){
+        return false;
+    }else{
+        return true;
+    }
+ }
 
 //////////////////////////////////////////////////////////////////////
 // Function 13 - Non-Friends /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
-
+    let notFriends = [];
+    for(var i = 0; i < array.length; i++){
+    if(object.name.friends.includes(array[i]) !== true){
+     notFriends.push(array[i]);
+    }
+    }
+    return notFriends;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -192,6 +191,11 @@ function nonFriends(name, array) {
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
+    if(Object.keys(object).length === 0){
+        object.key = value;
+    }else if(object.hasOwnProperty(key) === true){
+        object.key = value;
+    }
 
 }
 
@@ -200,16 +204,28 @@ function updateObject(object, key, value) {
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) {
+   for(var i = 0; i < array.length; i++){
+    for(var key in object){
+        if(array[i] === key){
+            delete object[key];
+        }
+    }
+   }
 
-}
+    }
+
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 16 - Dedup ///////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
+  
+    return array.filter((value, index) => array.indexOf(value) === index);
+    
+    }
 
-}
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
