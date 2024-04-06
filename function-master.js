@@ -192,11 +192,13 @@ function nonFriends(name, array) {
 
 function updateObject(object, key, value) {
     if(object.hasOwnProperty(key) !== true){
-        object['key'] = value;
+        object[key] = value;
+    
     }else if(object.hasOwnProperty(key) === true){
-        object['key'] = value;
+        object[key] = value;
+      
     }
-
+return object;
 }
 
 //////////////////////////////////////////////////////////////////////
