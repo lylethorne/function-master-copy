@@ -191,7 +191,7 @@ function nonFriends(name, array) {
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
-    if(Object.keys(object).length === 0){
+    if(object.hasOwnProperty(key) !== true){
         object.key = value;
     }else if(object.hasOwnProperty(key) === true){
         object.key = value;
