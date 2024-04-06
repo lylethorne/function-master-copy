@@ -179,13 +179,19 @@ function isFriend(name, object) {
 function nonFriends(name, array) {
     let notFriends = [];
     for(var i = 0; i < array.length; i++){
-    if(object.name.friends.includes(array[i]) !== true){
+    if(array[i].friends.includes(name) !== true){
      notFriends.push(array[i]);
     }
     }
     return notFriends;
 }
-
+let data = [
+    {name: "Jimmy", friends:["Sara", "Liza"]},
+    {name: "Bob", friends:[]},
+    {name: "Liza", friends: ["Jimmy"]},
+    {name: "Sara", friends: ["Jimmy"]}
+  ];
+console.log(nonFriends("jimmy", data));
 //////////////////////////////////////////////////////////////////////
 // Function 14 - Update Object ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
