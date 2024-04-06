@@ -179,28 +179,22 @@ function isFriend(name, object) {
 function nonFriends(name, array) {
     let notFriends = [];
     for(var i = 0; i < array.length; i++){
-    if(array[i].friends.includes(name) !== true){
-     notFriends.push(array[i]);
+    if(array[i].name !== name && array[i].friends.includes(name) !== true){
+     notFriends.push(array[i].name);
     }
     }
     return notFriends;
 }
-let data = [
-    {name: "Jimmy", friends:["Sara", "Liza"]},
-    {name: "Bob", friends:[]},
-    {name: "Liza", friends: ["Jimmy"]},
-    {name: "Sara", friends: ["Jimmy"]}
-  ];
-console.log(nonFriends("jimmy", data));
+
 //////////////////////////////////////////////////////////////////////
 // Function 14 - Update Object ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
     if(object.hasOwnProperty(key) !== true){
-        object.key = value;
+        object['key'] = value;
     }else if(object.hasOwnProperty(key) === true){
-        object.key = value;
+        object['key'] = value;
     }
 
 }
